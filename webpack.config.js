@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   context: __dirname,
@@ -8,7 +8,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extentions: ['', 'js', 'jsx', 'json']
+    extensions: ['', '.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
@@ -16,6 +16,13 @@ module.exports = {
     chunks: false
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
