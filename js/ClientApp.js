@@ -1,23 +1,16 @@
-/* global React ReactDOM */
+var React = require('react')
+var ReactDOM = require('react-dom')
+var MyTitle = require('./MyTitle')
 
 var div = React.DOM.div
-var h1 = React.DOM.h1
 
-var MyTitle = React.createClass({
-  render () {
-    return (
-      div(null,
-        h1(null, 'Check out this component!')
-      )
-    )
-  }
-})
+var MyTitleFact = React.createFactory(MyTitle)
 
 var MyFirstComponent = (
   div(null,
-    React.createElement(MyTitle, null),
-    React.createElement(MyTitle, null),
-    React.createElement(MyTitle, null)
+    MyTitleFact({title: 'Props are great', color: 'red'}),
+    MyTitleFact({title: 'it passed from this'}),
+    MyTitleFact({title: 'it still passed by giving inline comment'})
   )
 )
 
